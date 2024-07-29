@@ -44,12 +44,12 @@ const CurrentWeather: React.FC<CurrentWeatherProps> = ({
           onClick={() => handleLocation()}
           className="w-10 h-10 bg-[#6E707A] rounded-full flex justify-center items-center"
         >
-          <img src="/icons/my_location.svg" alt="my_location icon" />
+          <img src="icons/my_location.svg" alt="my_location icon" />
         </button>
       </div>
       <div className="absolute top-14 w-[563px] h-[326px] z-0 ">
         <img
-          src="/icons/Cloud-background.png"
+          src="icons/Cloud-background.png"
           alt="cloud background image"
           className="w-full h-full opacity-10"
         />
@@ -76,7 +76,7 @@ const CurrentWeather: React.FC<CurrentWeatherProps> = ({
             <p>Fri, 5 Jun</p>
           </div>
           <div className="flex gap-2 items-center">
-            <img src="/icons/location.svg" alt="location icon" />
+            <img src="icons/location.svg" alt="location icon" />
             <p className="text-[18px] text-secondary font-semibold">
               {data.location.name}, {data.location.country}
             </p>

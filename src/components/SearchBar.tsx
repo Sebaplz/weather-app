@@ -42,13 +42,13 @@ const SearchBar: React.FC<SearchBarProps> = ({ setIsClose, setLocation }) => {
     >
       <div className="flex justify-end">
         <button onClick={() => setIsClose(false)}>
-          <img src="/icons/close.svg" alt="Close icon" />
+          <img src="icons/close.svg" alt="Close icon" />
         </button>
       </div>
       <form className="flex gap-4 w-full pt-4" onSubmit={handleSubmit}>
         <div className="flex gap-2 bg-transparent flex-1 relative">
           <img
-            src="/icons/search.svg"
+            src="icons/search.svg"
             alt="Search icon"
             className="absolute top-2 left-2"
           />
@@ -80,7 +80,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ setIsClose, setLocation }) => {
             >
               <span>{locationObj.location}</span>
               <button>
-                <img src="/icons/next.svg" alt="Arrow right icon" />
+                <img src="icons/next.svg" alt="Arrow right icon" />
               </button>
             </li>
           ))}
