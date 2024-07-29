@@ -3,7 +3,6 @@ interface ProgressProps {
 }
 
 const Progress: React.FC<ProgressProps> = ({ percentage }) => {
-  console.log(percentage);
   return (
     <div className="w-[90%] bg-gray-200 rounded-full h-2.5">
       <div

@@ -1,6 +1,5 @@
 import React from "react";
 import { Weather } from "../types/weather";
-import ChangeTemp from "./ChangeTemp";
 
 interface ForecastListProps {
   data: Weather;
@@ -9,7 +8,6 @@ interface ForecastListProps {
 const ForecastList: React.FC<ForecastListProps> = ({ data }) => {
   return (
     <section id="forecast-list" className="flex flex-col py-16 lg:py-8">
-      <ChangeTemp />
       <div className="flex flex-wrap gap-8 md:gap-6 lg:gap-10 justify-center">
         {data.forecast.forecastday.map((forescastday, index) => (
           <article

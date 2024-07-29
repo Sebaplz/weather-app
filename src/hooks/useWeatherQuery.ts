@@ -21,6 +21,13 @@ function manageLocations(locationData: { location: string }) {
   }
 }
 
+function getLastSavedLocation() {
+  const savedLocations = JSON.parse(localStorage.getItem("locations") || "[]");
+  return savedLocations.length > 0
+    ? savedLocations[savedLocations.length - 1]
+    : null;
+}
+
 async function fetchWeatherData(location: string): Promise<Weather> {
   try {
     const { data } = await axiosInstance.get<Weather>("/forecast.json", {
@@ -38,6 +45,28 @@ async function fetchWeatherData(location: string): Promise<Weather> {
 
     return data;
   } catch (error) {
+    const lastLocation = getLastSavedLocation();
+
+    if (lastLocation) {
+      try {
+        const { data } = await axiosInstance.get<Weather>("/forecast.json", {
+          params: {
+            q: lastLocation.location,
+            days: 5,
+          },
+        });
+
+        return data;
+      } catch (secondError) {
+        if (axios.isAxiosError(secondError)) {
+          throw new Error(
+            secondError.response?.data?.message || "Error fetching weather data"
+          );
+        }
+        throw secondError;
+      }
+    }
+
     if (axios.isAxiosError(error)) {
       throw new Error(
         error.response?.data?.message || "Error fetching weather data"
